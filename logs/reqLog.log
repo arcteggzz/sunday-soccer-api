@@ -12,3 +12,5 @@
 20230314	18:29:48	4398baa6-8d95-4669-8ba2-d4b86955c2d6	GET	/	https://www.google.com
 20230314	18:30:12	d16a31b2-28d7-4b2c-b2ed-cab191a737da	OPTIONS	/	https://www.google.com
 20230314	18:30:12	1553db10-44d0-4899-a718-5d9b3844ae3f	GET	/	https://www.google.com
+20230314	22:53:13	80497f09-1779-433e-9a40-9068eac8586b	GET	/	undefined
+20230314	22:53:13	fd7c4f9d-20d9-4e89-a7a1-eeaa40355442	GET	/css/style.css	undefined
