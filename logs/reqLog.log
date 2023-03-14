@@ -1,0 +1,14 @@
+20230314	18:17:35	bed53259-6468-46c1-bcce-0778b9bef3ef	GET	/	undefined
+20230314	18:17:35	6a377fb4-ea23-4520-b775-598bbe1ffa50	GET	/css/style.css	undefined
+20230314	18:27:39	e4911634-5b31-4e0a-be99-ce8e791f3a7f	GET	/	undefined
+20230314	18:27:39	26bc902e-bbda-4b27-8352-7d317962ae21	GET	/css/style.css	undefined
+20230314	18:28:39	6f35fbb3-ef25-471d-9226-d2653ea50929	OPTIONS	/	https://www.google.com
+20230314	18:28:39	1f4e32c1-d6b4-431d-a45d-ccfd0dba6d07	GET	/	https://www.google.com
+20230314	18:29:06	59f0bf9d-9acb-4a1e-9e03-c51d4d94388f	OPTIONS	/	https://www.google.com
+20230314	18:29:06	5536a9fe-c1a0-49da-89ba-06fca7dd051a	GET	/	https://www.google.com
+20230314	18:29:11	ec6c2b43-daae-400d-b409-f6875b49f163	OPTIONS	/	https://www.google.com
+20230314	18:29:11	1961865c-1207-464b-a6bb-8c2080322d5c	GET	/	https://www.google.com
+20230314	18:29:48	da51d700-f247-426f-ab0e-fca2e6a46181	OPTIONS	/	https://www.google.com
+20230314	18:29:48	4398baa6-8d95-4669-8ba2-d4b86955c2d6	GET	/	https://www.google.com
+20230314	18:30:12	d16a31b2-28d7-4b2c-b2ed-cab191a737da	OPTIONS	/	https://www.google.com
+20230314	18:30:12	1553db10-44d0-4899-a718-5d9b3844ae3f	GET	/	https://www.google.com
