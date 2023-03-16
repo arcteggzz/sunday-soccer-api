@@ -6,3 +6,9 @@
 20230314	18:29:11	dfcd68e0-f5eb-4807-a27d-dee5acefeecf	Error: Not allowed by CORS	GET	/	https://www.google.com
 20230314	18:30:12	a47b6c1e-e01e-4769-bfd5-e316c36522c3	Error: Not allowed by CORS	OPTIONS	/	https://www.google.com
 20230314	18:30:12	c3fe9c0e-e399-4f25-a571-aa799e261563	Error: Not allowed by CORS	GET	/	https://www.google.com
+20230315	22:57:50	ebf61e5a-c625-49b9-aea3-933733904791	ReferenceError: User is not defined	POST	/admins	undefined
+20230316	00:00:24	decee07a-f7d5-44b3-b575-ff1b3fbe9d84	MongoServerError: E11000 duplicate key error collection: test.admins index: name_1 dup key: { name: null }	POST	/admins	undefined
+20230316	00:02:47	f48d73e0-88ba-4422-a786-eca80588a0b5	MongoServerError: E11000 duplicate key error collection: test.admins index: name_1 dup key: { name: null }	POST	/admins	undefined
+20230316	00:14:07	72fcb2ca-6543-4d2c-8350-c051eace4426	MongoServerError: E11000 duplicate key error collection: test.admins index: name_1 dup key: { name: null }	POST	/admins	undefined
+20230316	00:46:23	38a5fb35-d0f5-4a94-8ba5-005c22b1f461	Error: Invalid select: select only takes 1 argument	GET	/admins	undefined
+20230316	00:56:44	d692baf6-ddf5-44fd-975e-785d7f18959e	CastError: Cast to ObjectId failed for value "555" (type string) at path "_id" for model "Admin"	DELETE	/admins	undefined

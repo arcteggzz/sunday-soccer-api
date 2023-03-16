@@ -1,4 +1,29 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+
+const seasonGoalsSchema = new mongoose.Schema({
+  season: { type: String, required: true },
+  goals: { type: Number },
+});
+
+const seasonAssistsSchema = new mongoose.Schema({
+  season: { type: String, required: true },
+  assists: { type: Number },
+});
+
+const seasonCleanSheetsSchema = new mongoose.Schema({
+  season: { type: String, required: true },
+  cleanSheets: { type: Number },
+});
+
+const seasonYellowCardsSchema = new mongoose.Schema({
+  season: { type: String, required: true },
+  yellowCards: { type: Number },
+});
+
+const seasonRedCardsSchema = new mongoose.Schema({
+  season: { type: String, required: true },
+  redCards: { type: Number },
+});
 
 const playerSchema = new mongoose.Schema({
   name: {
@@ -8,14 +33,13 @@ const playerSchema = new mongoose.Schema({
   },
   knownName: {
     type: String,
-    required: false,
-    unique: false,
-    default: "",
+    required: true,
+    unique: true,
   },
-  positions: [{ type: string }],
+  positions: [{ type: String }],
   image: {
-    type: String,
-    required: false,
+    public_id: { type: String },
+    url: { type: String },
   },
   monthlyRegisteration: {
     type: Boolean,
@@ -28,39 +52,14 @@ const playerSchema = new mongoose.Schema({
   },
   stats: {
     legacyGoals: {
-      type: string,
+      type: Number,
       required: true,
     },
-    goals: [
-      {
-        season23: Number,
-        season24: Number,
-      },
-    ],
-    assists: [
-      {
-        season23: Number,
-        season24: Number,
-      },
-    ],
-    yellowCards: [
-      {
-        season23: Number,
-        season24: Number,
-      },
-    ],
-    redCards: [
-      {
-        season23: Number,
-        season24: Number,
-      },
-    ],
-    cleanSheets: [
-      {
-        season23: Number,
-        season24: Number,
-      },
-    ],
+    goals: [seasonGoalsSchema],
+    assists: [seasonAssistsSchema],
+    cleanSheets: [seasonCleanSheetsSchema],
+    yellowCards: [seasonYellowCardsSchema],
+    redCards: [seasonRedCardsSchema],
   },
 });
 

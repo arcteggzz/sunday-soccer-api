@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const adminSchema = new mongoose.Schema({
-  name: {
+  username: {
     type: String,
     required: true,
     unique: true,
@@ -10,6 +10,7 @@ const adminSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    sparse: true,
   },
   password: {
     type: String,
