@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const playersController = require("../controllers/playersController");
+const playerController = require("../controllers/playerController");
 
 //we no longer need to do "/player" because it matches /players already.
 router
   .route("/")
-  .get(playersController.getAllPlayers)
-  .post(playersController.createNewPlayer)
-  .patch(playersController.updatePlayer)
-  .delete(playersController.deletePlayer);
+  .get(playerController.getAllPlayers)
+  .post(playerController.createNewPlayer)
+  .patch(playerController.updatePlayer)
+  .delete(playerController.deletePlayer);
 
 module.exports = router;

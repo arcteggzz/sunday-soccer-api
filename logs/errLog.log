@@ -12,3 +12,4 @@
 20230316	00:14:07	72fcb2ca-6543-4d2c-8350-c051eace4426	MongoServerError: E11000 duplicate key error collection: test.admins index: name_1 dup key: { name: null }	POST	/admins	undefined
 20230316	00:46:23	38a5fb35-d0f5-4a94-8ba5-005c22b1f461	Error: Invalid select: select only takes 1 argument	GET	/admins	undefined
 20230316	00:56:44	d692baf6-ddf5-44fd-975e-785d7f18959e	CastError: Cast to ObjectId failed for value "555" (type string) at path "_id" for model "Admin"	DELETE	/admins	undefined
+20230316	22:02:29	045823f9-bc72-4e8c-9c47-bee9a59c34c5	ValidationError: Player validation failed: stats.legacyGoals: Cast to Number failed for value "{ legacyGoals: 0 }" (type Object) at path "stats.legacyGoals"	POST	/players	undefined

@@ -1,4 +1,5 @@
 const Admin = require("../models/Admin");
+//because of the asyncHandler package, we dont have to use a try catch
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 

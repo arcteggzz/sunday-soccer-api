@@ -68,3 +68,17 @@
 20230316	12:46:14	8d0e7338-1d9c-48e5-8fd6-d50e07837c94	GET	/admins	undefined
 20230316	12:46:33	fdee2bac-b891-41b0-ac02-ad8db95d61d2	DELETE	/admins	undefined
 20230316	12:46:40	2355f94b-2661-493b-b726-32412069eb1c	GET	/admins	undefined
+20230316	13:01:52	8044687b-3049-4172-a822-f3492bebd7b6	GET	/admins	undefined
+20230316	13:02:09	0d9a85aa-c91d-4148-8b1c-564ccb6f5ce2	PATCH	/admins	undefined
+20230316	13:02:15	4556930e-5eb0-4abd-b77c-d26db8a9fa62	PATCH	/admins	undefined
+20230316	13:02:22	e234df71-1d60-4eeb-8fc3-1bd1aa602f38	GET	/admins	undefined
+20230316	13:19:25	cc55d425-4419-4802-bb29-acdc73617beb	GET	/players	undefined
+20230316	13:20:13	e1859c4a-6780-412a-bd1f-07f7574630f7	GET	/players	undefined
+20230316	22:01:50	791142e7-084f-4021-8f57-cfbad96174c4	POST	/admins	undefined
+20230316	22:02:24	48d7b815-0931-4754-aad0-21f579bdf410	POST	/players	undefined
+20230316	22:09:50	64136895-e842-46bd-b1ec-6832abc7dc06	POST	/players	undefined
+20230316	22:11:18	87c56e8c-6ca6-4a6c-aeee-3bb337baf222	POST	/players	undefined
+20230316	22:12:11	600eb856-28c7-4eda-a769-237ea052a0b7	POST	/players	undefined
+20230316	22:14:03	26625ce1-1176-4483-a9c9-5dd747793668	POST	/players	undefined
+20230316	23:26:08	b0314791-0481-4763-9290-46b65691762f	POST	/players	undefined
+20230316	23:27:10	2ea1c5fe-b226-4e65-af26-45c483103f11	GET	/players	undefined
