@@ -19,8 +19,7 @@ const getAllPlayers = asyncHandler(async (req, res) => {
 const createNewPlayer = asyncHandler(async (req, res) => {
   //destructure our variables from req.body
   //positions is an array
-  const { name, alias, positions, monthlyRegisteration, legacyGoals } =
-    req.body;
+  const { name, alias, positions, monthlyRegisteration } = req.body;
 
   //confirm that all data came in
   //note that only image, monthlyregistration and stats can be skipped
@@ -47,7 +46,6 @@ const createNewPlayer = asyncHandler(async (req, res) => {
     alias,
     positions,
     monthlyRegisteration,
-    legacyGoals,
   };
 
   //create and save an admin to mongoDb

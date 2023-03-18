@@ -25,9 +25,14 @@ const mongoose = require("mongoose");
 //   redCards: { type: Number },
 // });
 
-// const seasonStatsSchema = new mongoose.Schema({
-//   season: {},
-// });
+const seasonStatsSchema = new mongoose.Schema({
+  season: { type: String, default: "2021/2022" },
+  goals: { type: Number, default: 0 },
+  assists: { type: Number, default: 0 },
+  cleanSheets: { type: Number, default: 0 },
+  yellowCards: { type: Number, default: 0 },
+  redCards: { type: Number, default: 0 },
+});
 
 const playerSchema = new mongoose.Schema({
   name: {
@@ -55,10 +60,14 @@ const playerSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  legacyGoals: {
-    type: Number,
-    required: true,
+  stats: {
+    legacyGoals: {
+      type: Number,
+      default: 0,
+    },
+    futureStats: [seasonStatsSchema],
   },
+
   // stats: {
   //   futureStats: [seasonStats],
   // },

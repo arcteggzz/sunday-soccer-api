@@ -28,6 +28,8 @@ app.use("/", require("./routes/root"));
 app.use("/auth", require("./routes/authRoutes"));
 app.use("/players", require("./routes/playerRoutes"));
 app.use("/admins", require("./routes/adminRoutes"));
+app.use("/potmPoll", require("./routes/potmPollRoutes"));
+app.use("/potm-history", require("./routes/potmHistoryRoutes"));
 
 app.all("*", (req, res) => {
   res.status(404);
