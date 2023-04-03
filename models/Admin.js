@@ -22,6 +22,7 @@ const adminSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  refreshToken: { type: String, default: "" },
 });
 
 module.exports = mongoose.model("Admin", adminSchema);

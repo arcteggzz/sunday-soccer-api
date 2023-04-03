@@ -2,6 +2,8 @@ const Admin = require("../models/Admin");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
+const refreshTokenDuration = `7d`;
+const accessTokenDuration = `15m`;
 
 // @desc admin Login
 // @route POST /auth
@@ -37,14 +39,20 @@ const login = asyncHandler(async (req, res) => {
       },
     },
     process.env.ACCESS_TOKEN_SECRET,
-    { expiresIn: "15m" }
+    { expiresIn: `${accessTokenDuration}` }
   );
 
+  //create referesh token for admin
   const refreshToken = jwt.sign(
     { email: foundAdmin.email },
     process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: "7d" }
+    { expiresIn: `${refreshTokenDuration}` }
   );
+
+  //save refresh token to database
+  foundAdmin.refreshToken = refreshToken;
+  const response = await foundAdmin.save();
+  console.log(response);
 
   // Create secure cookie with refresh token
   //why are we creating a cookie?
@@ -95,7 +103,7 @@ const refresh = asyncHandler(async (req, res) => {
           },
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "15m" }
+        { expiresIn: `${accessTokenDuration}` }
       );
 
       res.json({ accessToken });
@@ -109,6 +117,22 @@ const refresh = asyncHandler(async (req, res) => {
 const logout = asyncHandler(async (req, res) => {
   const cookies = req.cookies;
   if (!cookies?.jwt) return res.sendStatus(204); //No content
+
+  //delete refreshToken from database
+  const refreshToken = cookies.jwt;
+
+  // Is refreshToken in db?
+  const foundAdmin = await Admin.findOne({ refreshToken }).exec();
+  if (!foundAdmin) {
+    res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
+    return res.sendStatus(204);
+  }
+
+  // Delete refreshToken in db
+  foundAdmin.refreshToken = "";
+  const result = await foundAdmin.save();
+  console.log(result);
+
   res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
   res.json({ message: "Cookie cleared" });
 });
