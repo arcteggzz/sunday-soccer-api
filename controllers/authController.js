@@ -30,7 +30,7 @@ const login = asyncHandler(async (req, res) => {
   //we are logged in at this point
   const accessToken = jwt.sign(
     {
-      //all of this info in this object would be destructures when it reaches the Frontend
+      //all of this info in this object would be destructured when it reaches the Frontend
       //all the FE would need to decrypt this information
       AdminInfo: {
         username: foundAdmin.username,
@@ -66,9 +66,14 @@ const login = asyncHandler(async (req, res) => {
     maxAge: 7 * 24 * 60 * 60 * 1000, //cookie expiry: set to match rT
   });
 
+  const _username = foundAdmin.username;
+  const _email = foundAdmin.email;
+  const _id = foundAdmin._id;
+  const _personalCode = foundAdmin.personalCode;
+
   // Send accessToken containing email and personalCode and username
   //we send this back to the client
-  res.json({ accessToken });
+  res.json({ _username, _email, accessToken, _id, _personalCode });
 });
 
 // @desc Refresh
