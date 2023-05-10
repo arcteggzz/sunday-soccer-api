@@ -22,16 +22,19 @@ const createNewPlayer = asyncHandler(async (req, res) => {
   const {
     name,
     alias,
+    playerQuote,
     positions,
-    monthlyRegisteration,
+    favoritePosition,
+    socialMedia: { facebook, twitter, instagram },
     stats: { legacyGoals, futureStats },
   } = req.body;
 
   //confirm that all data came in
-  //note that only image, monthlyregistration and stats can be skipped
-  if (!name || !alias || !positions) {
+  //note that only image, stats, socialMedia can be skipped
+  if (!name || !alias || !playerQuote || !positions || !favoritePosition) {
     return res.status(400).json({
-      message: "Only Image, monthly registration and stats can be ommited.",
+      message:
+        "Only Image, monthly registration, socialMedia and stats can be ommited.",
     });
   }
 
@@ -50,8 +53,10 @@ const createNewPlayer = asyncHandler(async (req, res) => {
   const playerObject = {
     name,
     alias,
+    playerQuote,
     positions,
-    monthlyRegisteration,
+    favoritePosition,
+    socialMedia: { facebook, twitter, instagram },
     stats: { legacyGoals, futureStats },
   };
 

@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const refreshTokenDuration = `7d`;
-const accessTokenDuration = `15m`;
+const accessTokenDuration = `30m`;
 
 // @desc admin Login
 // @route POST /auth
@@ -51,8 +51,7 @@ const login = asyncHandler(async (req, res) => {
 
   //save refresh token to database
   foundAdmin.refreshToken = refreshToken;
-  const response = await foundAdmin.save();
-  console.log(response);
+  await foundAdmin.save();
 
   // Create secure cookie with refresh token
   //why are we creating a cookie?
@@ -135,8 +134,7 @@ const logout = asyncHandler(async (req, res) => {
 
   // Delete refreshToken in db
   foundAdmin.refreshToken = "";
-  const result = await foundAdmin.save();
-  console.log(result);
+  await foundAdmin.save();
 
   res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
   res.json({ message: "Cookie cleared" });

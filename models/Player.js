@@ -1,29 +1,10 @@
 const mongoose = require("mongoose");
-
-// const seasonGoalsSchema = new mongoose.Schema({
-//   season: { type: String, required: true },
-//   goals: { type: Number },
-// });
-
-// const seasonAssistsSchema = new mongoose.Schema({
-//   season: { type: String, required: true },
-//   assists: { type: Number },
-// });
-
-// const seasonCleanSheetsSchema = new mongoose.Schema({
-//   season: { type: String, required: true },
-//   cleanSheets: { type: Number },
-// });
-
-// const seasonYellowCardsSchema = new mongoose.Schema({
-//   season: { type: String, required: true },
-//   yellowCards: { type: Number },
-// });
-
-// const seasonRedCardsSchema = new mongoose.Schema({
-//   season: { type: String, required: true },
-//   redCards: { type: Number },
-// });
+const validFavoritePositions = [
+  "Goal Keeper",
+  "Defender",
+  "Midfielder",
+  "Striker",
+];
 
 const seasonStatsSchema = new mongoose.Schema({
   season: { type: String, default: "2021/2022" },
@@ -32,6 +13,12 @@ const seasonStatsSchema = new mongoose.Schema({
   cleanSheets: { type: Number, default: 0 },
   yellowCards: { type: Number, default: 0 },
   redCards: { type: Number, default: 0 },
+});
+
+const socialMediaSchema = new mongoose.Schema({
+  facebook: { type: String, default: "" },
+  instagram: { type: String, default: "" },
+  twitter: { type: String, default: "" },
 });
 
 const playerSchema = new mongoose.Schema({
@@ -45,21 +32,25 @@ const playerSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  playerQuote: { type: String, required: true },
   // array of strings
-  positions: [{ type: String }],
+  positions: [{ type: String, required: true }],
+  favoritePosition: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function (v) {
+        return validFavoritePositions.includes(v);
+      },
+      message: (props) => `${props.value} is not a valid favorite position!`,
+    },
+  },
   //this image parameter may change eventually
   image: {
     public_id: { type: String, default: "No Image" },
     url: { type: String, default: "No Image" },
   },
-  monthlyRegisteration: {
-    type: Boolean,
-    default: true,
-  },
-  isMember: {
-    type: Boolean,
-    default: true,
-  },
+  socialMedia: socialMediaSchema,
   stats: {
     legacyGoals: {
       type: Number,
@@ -67,10 +58,6 @@ const playerSchema = new mongoose.Schema({
     },
     futureStats: [seasonStatsSchema],
   },
-
-  // stats: {
-  //   futureStats: [seasonStats],
-  // },
 });
 
 module.exports = mongoose.model("Player", playerSchema);
