@@ -3,7 +3,7 @@ const validFavoritePositions = [
   "Goal Keeper",
   "Defender",
   "Midfielder",
-  "Striker",
+  "Forward",
 ];
 
 const seasonStatsSchema = new mongoose.Schema({
