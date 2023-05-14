@@ -10,17 +10,7 @@ const getAllPlayerStats = asyncHandler(async (req, res) => {
   if (!stats || stats.length === 0) {
     return res.status(400).json({ message: "No Players found" });
   }
-  stats.sort((a, b) => {
-    const aGoals = a.stats.futureStats[0].yellowCards;
-    const bGoals = b.stats.futureStats[0].yellowCards;
-    if (aGoals < bGoals) {
-      return 1;
-    }
-    if (aGoals > bGoals) {
-      return -1;
-    }
-    return 0;
-  });
+
   return res.json(stats);
 });
 
