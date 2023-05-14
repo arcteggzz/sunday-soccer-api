@@ -30,6 +30,7 @@ app.use("/players", require("./routes/playerRoutes"));
 app.use("/admins", require("./routes/adminRoutes"));
 app.use("/potmPoll", require("./routes/potmPollRoutes"));
 app.use("/potm-history", require("./routes/potmHistoryRoutes"));
+app.use("/statistics", require("./routes/statsRoutes"));
 
 app.all("*", (req, res) => {
   res.status(404);
