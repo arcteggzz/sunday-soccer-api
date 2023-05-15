@@ -13,4 +13,9 @@ router
   .patch(playerController.updatePlayer)
   .delete(playerController.deletePlayer);
 
+router.route("/:playerId/stats").post(playerController.updatePlayerStats);
+router
+  .route("/:playerId/goals/:season")
+  .patch(playerController.updatePlayerGoals);
+
 module.exports = router;
