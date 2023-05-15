@@ -21,6 +21,8 @@ const getSingleSeasonPlayerStats = asyncHandler(async (req, res) => {
     {
       $project: {
         name: 1,
+        alias: 1,
+        image: 1,
         stats: {
           $filter: {
             input: "$stats.futureStats",
