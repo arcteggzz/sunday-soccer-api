@@ -7,7 +7,7 @@ const validFavoritePositions = [
 ];
 
 const seasonStatsSchema = new mongoose.Schema({
-  season: { type: String, default: "2021/2022" },
+  season: { type: String },
   goals: { type: Number, default: 0 },
   assists: { type: Number, default: 0 },
   cleanSheets: { type: Number, default: 0 },

@@ -95,4 +95,50 @@ const deletePlayer = asyncHandler(async (req, res) => {
   res.json(reply);
 });
 
-module.exports = { getAllPlayers, createNewPlayer, updatePlayer, deletePlayer };
+const updatePlayerStats = asyncHandler(async (req, res) => {
+  const playerId = req.params.playerId;
+  const seasonStats = req.body;
+
+  const updatedPlayer = await Player.findOneAndUpdate(
+    { _id: playerId },
+    { $push: { "stats.futureStats": seasonStats } },
+    { new: true }
+  );
+
+  if (updatedPlayer) {
+    //created
+    res.status(201).json({ message: `Player updated` });
+  } else {
+    res.status(400).json({ message: "Invalid Player data received" });
+  }
+});
+
+const updatePlayerGoals = asyncHandler(async (req, res) => {
+  const playerId = req.params.playerId;
+  const season = req.params.season;
+  const goals = req.body.goals;
+
+  const updatedPlayer = await Player.findOneAndUpdate(
+    { _id: playerId, "stats.futureStats.season": season },
+    { $inc: { "stats.futureStats.$.goals": goals } },
+    { new: true }
+  );
+
+  if (updatedPlayer) {
+    //created
+    res
+      .status(201)
+      .json({ message: `Player updated for ${season} with ${goals}` });
+  } else {
+    res.status(400).json({ message: "Invalid Player data received" });
+  }
+});
+
+module.exports = {
+  getAllPlayers,
+  createNewPlayer,
+  updatePlayer,
+  deletePlayer,
+  updatePlayerStats,
+  updatePlayerGoals,
+};
