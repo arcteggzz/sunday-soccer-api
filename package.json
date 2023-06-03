@@ -4,8 +4,8 @@
   "description": "Sunday Soccer League api",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node api.js && node server",
+    "dev": "node api.js && nodemon server"
   },
   "repository": {
     "type": "git",
